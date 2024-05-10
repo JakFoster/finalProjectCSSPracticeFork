@@ -1,3 +1,7 @@
+.mainCreateRoutePage {
+  padding-top: 120px;
+}
+
 .headerForNow {
   background-color: #b6e1c9;
   height: 100px;
@@ -23,5 +27,4 @@
   display: flex;
   justify-content: center;
   width: 100vw;
-  margin: 20px auto;
 }
