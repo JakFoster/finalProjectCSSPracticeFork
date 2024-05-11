@@ -8,23 +8,19 @@ import createroute from "../assets/create-route.png";
 import savedroutes from "../assets/saved-routes.png";
 import { Link } from "react-router-dom";
 
-export default function Header() {
-  //state for the burger bar - so when true, it is showing
-  const [showMenuBar, setShowMenuBar] = useState(false);
+export default function Header({openMenu, handleOpenMenu}) {
 
   return (
     <header className="header">
-      {!showMenuBar && (
-        <>
-          <Link to={"/"}>
+      <Link to={"/"}>
             <img className="header__logo" src={logo} alt="U-Plot logo"></img>
           </Link>
+      {!openMenu && (
+        <>
+          
           <button
             className="header__openButton"
-            onClick={() => {
-              setShowMenuBar(!showMenuBar);
-              //when click on this, we want the burger menu to show...
-            }}
+            onClick={handleOpenMenu}
           >
             <img
               className="header__burger"
@@ -35,13 +31,13 @@ export default function Header() {
         </>
       )}
 
-      {showMenuBar && (
+      {openMenu && (
         <nav className="header__navigationMenu">
           <ul className="header__linksList">
-            <Link className="header__link" to={"/"}>
+            <Link className="header__link fixBorder" to={"/"}>
               <li className="header__linkItem">HOME</li>
             </Link>
-            <Link className="header__link" to={"../create-route"}>
+            <Link className="header__link fixBorder" to={"../create-route"}>
               <li className="header__linkItem">CREATE ROUTE</li>
             </Link>
             <Link className="header__link" to={"../saved-routes"}>
@@ -50,11 +46,9 @@ export default function Header() {
           </ul>
           <button
             className="header__closeButton"
-            onClick={() => {
-              setShowMenuBar(false);
-            }}
+            onClick={handleOpenMenu}
           >
-            X
+            &times;
           </button>
         </nav>
       )}

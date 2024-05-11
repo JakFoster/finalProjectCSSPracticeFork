@@ -44,6 +44,8 @@ box-shadow: 20px 20px 32px 0px rgba(0,0,0,0.2);
   margin-left: 10px;
 }
 
+/* Breakpoints */
+
 @media (width > 1024px){
   .mainHomePage__logo {
     height: 250px;
