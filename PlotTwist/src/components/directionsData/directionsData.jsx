@@ -127,8 +127,9 @@ export default function DirectionsData({
             <div className="routeData__information">
               <ol className="routeData__list">
                 {directionsResult.routes[0].legs.map((element, index) => {
+                  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                   return (
-                    <li className="routeData__listItem" key={index}>{element.duration?.text}</li>
+                    <li className="routeData__listItem" key={index}>{`Marker ${alphabet[index]} => Marker ${alphabet[index + 1]}: `}{element.duration?.text}</li>
                   );
                 })}
               </ol>
